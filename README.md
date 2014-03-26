@@ -8,16 +8,24 @@ The major security feature it gives is that there is no need to save or be respo
 
 ## Basic Usage
 
-Stripe can be accessed through their [API](https://stripe.com/docs/api), an included [Stripe.js file](https://stripe.com/docs/stripe.js), and a pre-made [Checkout](https://stripe.com/checkout) solution.
+Stripe can be accessed through their [API](https://stripe.com/docs/api), an included [Stripe.js](https://stripe.com/docs/stripe.js), and a pre-made [Checkout](https://stripe.com/checkout) solution.
 
-We'll use both
+For starters you'll need to setup and account[here](http://stripe.com) and use the .js include inside your body tag with this code to enable us to:
+
+1) Collect credit card information with Stripe.js
+2) Convert those details to what we call a single-use token
+3) Send that token, with the rest of your form, to your server
 
 ```html
-<link rel="stylesheet" href="http://lab.lepture.com/editor/editor.css" />
-<script type="text/javascript" src="http://lab.lepture.com/editor/editor.js"></script>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('YOUR KEY HERE');
+</script>
 ```
 
-Having done this, an editor instance can be created:
+Now setup your page with the information in your account.  Stripe does a good walk through [here](https://stripe.com/docs/stripe.js).
+
 
 ```js
 var editor = new Editor();
